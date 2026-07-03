@@ -1,0 +1,24 @@
+<svg width="20" height="20" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <path
+    d="M45 58V18
+       C45 13 49 9 54 9
+       C59 9 63 13 63 18V43
+       C65 40 68 38 72 38
+       C77 38 81 42 81 47V52
+       C83 50 86 49 89 49
+       C94 49 98 53 98 58V65
+       C100 63 103 62 106 62
+       C111 62 115 66 115 71V84
+       C115 101 101 115 83 115H66
+       C55 115 45 110 38 101
+       L12 67
+       C9 63 10 57 14 54
+       C18 51 24 52 27 56
+       L45 78V58Z"
+    fill="none"
+    stroke="#1f2937"
+    stroke-width="5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

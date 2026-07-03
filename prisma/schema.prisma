@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Process {
+  id                 String   @id @default(cuid())
+  name               String
+  columnColor        String   @default("#F8FAFC")
+  badgeColor         String   @default("#E2E8F0")
+  order              Int
+  isCompletedProcess Boolean  @default(false)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  tasks              Task[]
+}
+
+model Task {
+  id          String    @id @default(cuid())
+  title       String
+  description String?
+  priority    Priority  @default(NORMAL)
+  order       Int
+
+  processId   String
+  process     Process   @relation(fields: [processId], references: [id], onDelete: Cascade)
+
+  completedAt DateTime?
+  archiveAt   DateTime?
+  archivedAt  DateTime?
+
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+enum Priority {
+  LOW
+  NORMAL
+  HIGH
+}
+
+model Setting {
+  id                         String   @id @default("default")
+  completedTaskRetentionDays Int      @default(3)
+  createdAt                  DateTime @default(now())
+  updatedAt                  DateTime @updatedAt
+}
